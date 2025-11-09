@@ -5,7 +5,7 @@ import { useState } from 'react';
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
-  const [generatedImage, setGeneratedImage] = useState(null);
+  const [generatedImage, setGeneratedImage] = useState({});
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -28,6 +28,14 @@ function App() {
 
     const data = await response.json();
     setMenuItems(data.items);
+
+    const images = {};
+    for (const item of data.items) {
+      const imageResponse = await fetch(`http://localhost:8000/api/generate/${item.description}`);
+      const imageData = await imageResponse.json();
+      images[item.name] = imageData.image_url;
+    }
+    setGeneratedImage(images);
   };
 
   const handleItemClick = async (itemName) => {
@@ -61,6 +69,13 @@ function App() {
       >
         {item.description}
       </p>
+      {generatedImage[item.name] && (
+        <img
+        src = {generatedImage[item.name]}
+        alt = {item.name}
+        style = {{width: "300px", marginTop: "10px"}}
+        />
+      )}
     </div>
   ))}
 </div>
