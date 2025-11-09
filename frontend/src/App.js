@@ -50,11 +50,20 @@ function App() {
       </button>
 
       <div>
-        <h2> Menu Items:</h2>
-        {menuItems.map((item,index) => (
-          <p style = {{cursor: "pointer", color: "blue"}} key = {index} onClick = {() => handleItemClick(item)}>{item}</p>
-        ))}
-      </div>
+  <h2> Menu Items:</h2>
+  {menuItems.map((item, index) => (
+    <div key={index}>
+      <h3>{item.name}</h3>
+      
+      <p 
+        style={{cursor: "pointer", color: "blue"}} 
+        onClick={() => handleItemClick(item.description)}
+      >
+        {item.description}
+      </p>
+    </div>
+  ))}
+</div>
       {generatedImage && (
         <div>
           <h2> Generated Image:</h2>
