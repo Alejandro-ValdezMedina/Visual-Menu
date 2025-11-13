@@ -66,3 +66,5 @@ def extract_text(image_path: str) -> list[str]:
             "description": " ".join(current_descriptions),
         })
     return menu_items
+
+    #need to test with multiple items
