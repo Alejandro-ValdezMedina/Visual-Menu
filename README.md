@@ -22,19 +22,25 @@ uvicorn main:app --reload
 This runs on http://localhost:8000
 
 In a sepeate terminal, navigate to the Visual-Menu folder then:
+
 cd frontend
+
 npm install
+
 npm start
 
 This runs on http://localhost:3000
 
 # Current Limitations
 Currently does not work well with multi-column menus. The reason being the algorithm sorts text by vertical postion only. 
+
 Currently only works with English Text.
+
 Blurry images may not work as well with the OCR. 
 
 # Future Improvements
 Improve algorithm to work with multi-column menus.
+
 Improve OCR, and allow for different language detection.
 
 # Keywords
