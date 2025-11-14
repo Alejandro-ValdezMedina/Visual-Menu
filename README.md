@@ -12,8 +12,11 @@ The OCR extracts all text from the menu image along with bounding box coordinate
 
 # Installation
 In one terminal, naviage to the the Visual-Menu folder then:
+
 cd backend
+
 pip install -r requirements.txt
+
 uvicorn main:app --reload
 
 This runs on http://localhost:8000
