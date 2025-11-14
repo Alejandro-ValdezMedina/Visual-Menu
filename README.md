@@ -43,5 +43,7 @@ Improve algorithm to work with multi-column menus.
 
 Improve OCR, and allow for different language detection.
 
+Make it donwloadable on mobile devices
+
 # Keywords
 FastAPI · Python · React · JavaScript · OCR · EasyOCR · Computer Vision · Image Processing · AI · Image Generation · REST API · Full Stack · Web Development · Machine Learning · Text Extraction · Classification Algorithm · Portfolio Project
