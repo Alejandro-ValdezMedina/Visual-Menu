@@ -41,7 +41,8 @@ def extract_text(image_path: str) -> list[str]:
 
     heights = [item["text_height"] for item in text_data]
     average_height = sum(heights) / len(heights)
-    #print(f"average height: {average_height}")
+    print(f"average height: {average_height}")
+    print(f"Threshold (avg * 1.05): {average_height * 1.05}")
 
     menu_items = []
     current_item = None
@@ -50,7 +51,8 @@ def extract_text(image_path: str) -> list[str]:
     for item in text_data:
         text = item["text"]
         height = item["text_height"]
-        if height > average_height * 1.3:
+        print(f"Text: '{text[:30]}...' | Height: {height} | IsName: {height > average_height * 1.3}")
+        if height > average_height * 1.05:
             if current_item is not None:
                 menu_items.append({
                     "name": current_item,
