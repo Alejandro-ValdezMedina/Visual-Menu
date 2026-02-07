@@ -1,4 +1,12 @@
 # Visual-Menu
+
+# Project Summary
+**Visual-Menu** is a full-stack web app that converts a photo of a restaurant’s text-only menu into a visual browsing experience by generating AI food images for each dish. Users upload a menu image, the backend runs OCR to extract text and bounding boxes, then a layout-aware parser separates **dish names** from **descriptions** using text-size heuristics (e.g., larger-than-average text is treated as a title while smaller text is treated as description, with prices/calories filtered out). The app then calls an image-generation API to create a representative image per item and renders the results in a clean, scrollable UI—eliminating the need to manually search each dish online.
+
+**IMPORTANT UPDATE:** Pollinations.ai is not longer free to use, and therefore this program will not longer generate accurate images. I am actively trying to find an alternative and will update the code if possible. Thank you for understanding. 
+
+
+# Further Explanation
 This is a web app that turns text-based restaurant menus into visual experiences by generating AI food images from menu descriptions. 
 
 # The Problem With Restaurant Menus Today
