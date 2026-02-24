@@ -2,13 +2,18 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 import shutil
 from pathlib import Path
+import os
 from ocr import extract_text
 from AImages import make_url
 
 app = FastAPI()
+
+# Get allowed origins from environment variable, default to localhost for development
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"], #react port
+    allow_origins=allowed_origins, #react port and production frontend
     allow_credentials=True, #cookies
     allow_methods=["*"], #allow http methods
     allow_headers=["*"], #allow http headers

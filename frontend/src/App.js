@@ -25,7 +25,8 @@ function App() {
       const formData = new FormData();
       formData.append("file", selectedFile);
   
-      const response = await fetch("http://localhost:8000/api/upload-image", {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/upload-image`, {
         method: "POST",
         body: formData,
       });
@@ -35,7 +36,7 @@ function App() {
   
       const images = {};
       for (const item of data.items) {
-        const imageResponse = await fetch(`http://localhost:8000/api/generate/${encodeURIComponent(item.description)}`);
+        const imageResponse = await fetch(`${apiUrl}/api/generate/${encodeURIComponent(item.description)}`);
         const imageData = await imageResponse.json();
         images[item.name] = imageData.image_url;
       }
